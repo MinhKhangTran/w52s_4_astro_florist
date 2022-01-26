@@ -1,0 +1,49 @@
+/* typography */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+.fw-semi-bold {
+  font-weight: 600;
+}
+
+.h1 {
+  font-size: var(--h1);
+}
+
+.h2 {
+  font-size: var(--h2);
+}
+
+.h3 {
+  font-size: var(--h3);
+}
+
+.body {
+  font-size: var(--body);
+}
+
+.body-lg {
+  font-size: var(--body-lg);
+}
+.para {
+  font-size: var(--paragraph);
+  line-height: 1.5;
+}
+.nav_link {
+  font-size: var(--nav);
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  line-height: 1.1;
+}
+.text-center {
+  text-align: center;
+}
