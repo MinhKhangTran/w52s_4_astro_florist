@@ -1,0 +1,213 @@
+---
+const navArray = [
+  { id: 1, text: "Merkmale", url: "#merkmale" },
+  { id: 2, text: "Referenzen", url: "#referenzen" },
+  { id: 3, text: "Über uns", url: "/ueber-uns" },
+  { id: 4, text: "Kontakt", url: "/Kontakt" },
+];
+---
+
+<header id="header">
+  <nav class="container">
+    <div class="nav-header d-flex">
+      <a href="/">
+        <img
+          class="logo"
+          width="100"
+          src="/assets/icons/Logo.png"
+          alt="Das Logo von Floristin Rose"
+        />
+      </a>
+
+      <section class="navbar-mobile-icon">
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="navigation"
+          ><span class="sr-only">Menu</span>
+          <svg
+            class="icon icon-menu-toggle"
+            aria-hidden="true"
+            version="1.1"
+            xmlns="https://www.w3.org/2000/svg"
+            xmlns:xlink="https://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 100 100"
+          >
+            <g class="svg-menu-toggle">
+              <path class="line line-1" d="M5 13h90v14H5z"></path>
+              <path class="line line-2" d="M5 43h90v14H5z"></path>
+              <path class="line line-3" d="M5 73h90v14H5z"></path>
+            </g>
+          </svg>
+        </button>
+      </section>
+    </div>
+    <ul class="nav-bar" tabindex="-1">
+      {navArray.map((nav, index) => {
+        return (
+          <li>
+            <a
+              class={`${
+                nav.id === 4
+                  ? "uppercase nav_link link-dark outline_btn"
+                  : "uppercase nav_link text-dark"
+              }`}
+              href={nav.url}
+            >
+              {nav.text}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>
+<script>
+  const toggler = document.querySelector(".menu-toggle");
+  const navBar = document.querySelector(".nav-bar");
+  toggler.addEventListener("click", () => {
+    // Toggle class "opened". Set also aria-expanded to true or false.
+    if (-1 !== toggler.className.indexOf("opened")) {
+      toggler.className = toggler.className.replace(" opened", "");
+      toggler.setAttribute("aria-expanded", "false");
+      navBar.className = navBar.className.replace(" opened", "");
+    } else {
+      toggler.className += " opened";
+      navBar.className += " opened";
+      toggler.setAttribute("aria-expanded", "true");
+    }
+  });
+</script>
+
+<style>
+  @import url("../styles/_media.css");
+  header {
+    padding-top: 1rem;
+  }
+  .nav-header {
+    align-items: center;
+    justify-content: space-between;
+  }
+  ul {
+    display: none;
+  }
+  ul.opened {
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 0;
+  }
+  li {
+    padding-block: 1rem;
+  }
+  .navbar-mobile-icon button,
+  .navbar-mobile-icon input[type="button"] {
+    border: 0;
+    background: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    display: inline-block;
+    padding: 1rem 1.5em;
+    text-transform: uppercase;
+    border-radius: 4px;
+  }
+  .navbar-mobile-icon .menu-toggle {
+    padding: 1rem 1rem 0.65rem;
+    height: auto;
+    text-decoration: none;
+  }
+  .navbar-mobile-icon .icon {
+    display: inline-block;
+    fill: currentColor;
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+    position: relative;
+    top: -0.0625rem;
+  }
+  .navbar-mobile-icon .icon-menu-toggle {
+    width: 2rem;
+    height: 2rem;
+    top: -3px;
+  }
+  .navbar-mobile-icon .svg-menu-toggle .line {
+    opacity: 1;
+    -webkit-transform: rotate(0) translateY(0) translateX(0);
+    -ms-transform: rotate(0) translateY(0) translateX(0);
+    transform: rotate(0) translateY(0) translateX(0);
+    -webkit-transform-origin: 1rem 1em;
+    -ms-transform-origin: 1rem 1em;
+    transform-origin: 1rem 1em;
+    -webkit-transition: opacity 0.2s ease-in-out,
+      -webkit-transform 0.3s ease-in-out;
+    transition: opacity 0.2s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out,
+      -webkit-transform 0.3s ease-in-out;
+  }
+  .navbar-mobile-icon .svg-menu-toggle .line-1 {
+    -webkit-transform-origin: 1rem 2.5rem;
+    -ms-transform-origin: 1rem 2.5rem;
+    transform-origin: 1rem 2.5rem;
+  }
+  .navbar-mobile-icon .svg-menu-toggle .line-3 {
+    -webkit-transform-origin: 1rem 4rem;
+    -ms-transform-origin: 1rem 4rem;
+    transform-origin: 1rem 4rem;
+  }
+  .navbar-mobile-icon .menu-toggle.opened svg {
+    left: -1px;
+  }
+  .navbar-mobile-icon .menu-toggle.opened .svg-menu-toggle .line-1 {
+    -webkit-transform: rotate(45deg) translateY(0) translateX(0);
+    -ms-transform: rotate(45deg) translateY(0) translateX(0);
+    transform: rotate(45deg) translateY(0) translateX(0);
+  }
+  .navbar-mobile-icon .menu-toggle.opened .svg-menu-toggle .line-2 {
+    opacity: 0;
+  }
+  .navbar-mobile-icon .menu-toggle.opened .svg-menu-toggle .line-3 {
+    -webkit-transform: rotate(-45deg) translateY(0) translateX(0);
+    -ms-transform: rotate(-45deg) translateY(0) translateX(0);
+    transform: rotate(-45deg) translateY(0) translateX(0);
+  }
+  .navbar-mobile-icon .screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+  a {
+    text-decoration: none;
+  }
+  .outline_btn {
+    padding-inline: 24px;
+    padding-block: 12px;
+    border: 1px var(--link) solid;
+    border-radius: 50px;
+  }
+  @media (--md) {
+    .logo {
+      width: 160px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-mobile-icon {
+      display: none;
+    }
+    ul {
+      display: flex;
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-block: 0;
+    }
+    ul.opened {
+      flex-direction: row;
+    }
+  }
+</style>

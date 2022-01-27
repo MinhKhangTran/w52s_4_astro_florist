@@ -1,18 +1,13 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import Layout from "../layouts/Layout.astro";
 let title = "Astro Portfolio W52s #4";
 let description = "Astro Portfolio W52s #4";
 const permalink = Astro.site.href;
 let canonicalURL = Astro.request.canonicalURL;
 ---
 
-<html lang="de-DE">
-  <head>
-    <BaseHead {title} {description} {canonicalURL} {permalink} />
-  </head>
-  <body>
-    <main>
-      <h1 class="h1 fw-bold heading-text pt-10 pb-8">HIIII</h1>
-    </main>
-  </body>
-</html>
+<Layout {title} {description} {permalink} current="index" {canonicalURL}>
+  <main id="main-content" aria-label="main">
+    <h1 class="h1 fw-bold heading-text pt-10 pb-8">HIIII</h1>
+  </main>
+</Layout>

@@ -9,9 +9,12 @@
   background-color: var(--primary-light);
 }
 
-.heading-text {
+.heading-dark {
   color: var(--heading-dark);
 }
-.body-text {
+.text-dark {
   color: var(--text-dark);
+}
+.link-dark {
+  color: var(--link);
 }
