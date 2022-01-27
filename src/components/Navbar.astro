@@ -1,10 +1,14 @@
 ---
 const navArray = [
-  { id: 1, text: "Merkmale", url: "#merkmale" },
-  { id: 2, text: "Referenzen", url: "#referenzen" },
+  { id: 1, text: "Merkmale", url: "/#merkmale" },
+  { id: 2, text: "Referenzen", url: "/#referenzen" },
   { id: 3, text: "Über uns", url: "/ueber-uns" },
   { id: 4, text: "Kontakt", url: "/kontakt" },
 ];
+interface Props {
+  current: "index" | "über uns";
+}
+const { current } = Astro.props as Props;
 ---
 
 <header id="header">
@@ -45,7 +49,7 @@ const navArray = [
       </section>
     </div>
     <ul class="nav-bar" tabindex="-1">
-      {navArray.map((nav, index) => {
+      {navArray.map((nav) => {
         return (
           <li>
             <a
@@ -53,7 +57,11 @@ const navArray = [
                 nav.id === 4
                   ? "uppercase nav_link link-dark outline_btn"
                   : "uppercase nav_link text-dark"
-              }`}
+              }
+              ${
+                current === "über uns" && nav.text === "Über uns" && "link-dark"
+              }
+              `}
               href={nav.url}
             >
               {nav.text}
