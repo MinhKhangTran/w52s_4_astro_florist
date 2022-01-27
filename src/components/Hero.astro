@@ -1,3 +1,87 @@
 <section id="hero" aria-label="hero-section">
-  <h1>HERO</h1>
+  <div class="wrapper">
+    <div class="hero_text">
+      <h1 class="h1 heading-text">Blumen für jede Situation</h1>
+      <p>
+        Blumen für besondere Anlässe? Wir haben solche Blumen. <br />Was immer
+        sie wollen.
+      </p>
+      <a class="bg-primary" href="/#referenzen">Entdecken Sie mehr</a>
+    </div>
+    <div class="hero_image">
+      <picture class="hero_image_child">
+        <source srcset="assets/images/hero-min.webp" type="image/webp" />
+
+        <img
+          src="assets/images/hero-min.png"
+          alt="Eine Frau mit einem Rosen Strauß"
+        />
+      </picture>
+    </div>
+  </div>
 </section>
+
+<style>
+  @import url("../styles/_media.css");
+  section {
+    position: relative;
+  }
+  .wrapper {
+    margin-inline: auto;
+    max-width: 75rem;
+
+    @media (--sm) {
+      width: 90%;
+      display: flex;
+      height: calc(100vh - 91px);
+      align-items: center;
+    }
+  }
+  .hero_text {
+    width: 90%;
+    margin-inline: auto;
+    padding-block: 2.5rem;
+    text-align: center;
+    @media (--sm) {
+      width: 40%;
+      margin-inline: 0;
+      padding-block: 0rem;
+      text-align: left;
+    }
+    p {
+      padding-block: 1rem 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+      padding-inline: 24px;
+      padding-block: 12px;
+      border-radius: 50px;
+      transition: all 0.3s ease-in;
+      &:hover {
+        color: var(--primary-light);
+        background-color: var(--link);
+      }
+    }
+  }
+  .hero_image {
+    @media (--sm) {
+      height: calc(100vh - 91px);
+      width: 50%;
+      position: absolute;
+      right: 0;
+    }
+    picture {
+      @media (--sm) {
+        height: 100%;
+      }
+      img {
+        @media (--sm) {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+</style>
