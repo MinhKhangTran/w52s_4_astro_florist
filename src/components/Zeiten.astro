@@ -1,3 +1,88 @@
-<section id="zeiten" aria-label="zeiten-section">
-  <div class="image-wrapper"></div>
+<section
+  class="container d-flex bg-white"
+  style="--gap:0rem"
+  id="zeiten"
+  aria-label="zeiten-section"
+>
+  <div class="image-wrapper">
+    <picture class="welcome_image_child">
+      <source
+        media="(min-width: 768.1px)"
+        srcset="assets/images/welcome-min.webp"
+        type="image/webp"
+      />
+      <source
+        media="(max-width: 768px)"
+        srcset="assets/images/welcome_sm-min.webp"
+        type="image/webp"
+      />
+
+      <img
+        srcset="assets/images/welcome-min.jpg, assets/images/welcome_sm-min.jpg"
+        sizes="(min-width: 768.1px), (max-width: 768px)"
+        src="assets/images/welcome-min.jpg"
+        alt="Eine Frau mit einem Rosen Strauß"
+      />
+    </picture>
+  </div>
+  <div class="text-wrapper ">
+    <div class="address">
+      <h3 class="h3 heading-dark">Unsere Addresse</h3>
+      <p>Musterstraße 1</p>
+      <p>12345 Musterstadt</p>
+    </div>
+    <div class="uhr">
+      <h3 class="h3 heading-dark">Unsere Öffnugnszeiten</h3>
+      <article class="zeiten">
+        <p>Mo - Fr</p>
+        <div>
+          <p>08:00 - 12:00 Uhr</p>
+          <p>13:30 - 18:30 Uhr</p>
+        </div>
+      </article>
+      <article class="zeiten">
+        <p>Sa</p>
+        <div>
+          <p>08:00 - 12:00 Uhr</p>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
+
+<style>
+  @import url("../styles/_media.css");
+  section {
+    flex-direction: column;
+    @media (--md) {
+      flex-direction: row;
+    }
+    .image-wrapper,
+    .text-wrapper {
+      flex-basis: 50%;
+    }
+    .text-wrapper {
+      padding: 1rem;
+      @media (--sm) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .address,
+      .uhr {
+        @media (--md) {
+          width: 70%;
+          margin-inline: auto;
+        }
+      }
+      .uhr {
+        padding-top: 1rem;
+
+        .zeiten {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+</style>
