@@ -1,0 +1,22 @@
+@import url("../_media.css");
+
+#merkmale {
+  padding-block: 2.5rem;
+
+  .merkmale_flex {
+    flex-direction: column;
+    @media (--sm) {
+      flex-direction: row;
+    }
+  }
+  .merkmale_article {
+    padding-top: 1.5rem;
+    @media (--sm) {
+      padding-top: 2rem;
+    }
+  }
+  .benefits_p {
+    width: 50%;
+    margin-inline: auto;
+  }
+}

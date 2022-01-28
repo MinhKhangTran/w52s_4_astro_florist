@@ -5,8 +5,8 @@
 @import url("./_utilities.css");
 @import url("./_media.css");
 @import url("./_colors.css");
-/* @import url("./_spacer.css"); */
-
+@import url("./components/_merkmale.css"); /* @import url("./_spacer.css"); */
+@import url("./components/_testimonials.css");
 :root {
   /* font-family */
   --ff-heading: "Quicksand", sans-serif;

@@ -1,0 +1,10 @@
+@import url("../_media.css");
+
+#testimonials {
+  background: white;
+  padding-block: 4rem;
+  span {
+    display: flex;
+    justify-content: center;
+  }
+}
