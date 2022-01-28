@@ -10,10 +10,21 @@
     </div>
     <div class="hero_image">
       <picture class="hero_image_child">
-        <source srcset="assets/images/hero-min.webp" type="image/webp" />
+        <source
+          media="(min-width: 768.1px)"
+          srcset="assets/images/hero-min.webp"
+          type="image/webp"
+        />
+        <source
+          media="(max-width: 768px)"
+          srcset="assets/images/hero_sm-min.webp"
+          type="image/webp"
+        />
 
         <img
-          src="assets/images/hero-min.png"
+          srcset="assets/images/hero-min.jpg, assets/images/hero_sm-min.jpg"
+          sizes="(min-width: 768.1px), (max-width: 768px)"
+          src="assets/images/hero-min.jpg"
           alt="Eine Frau mit einem Rosen Strauß"
         />
       </picture>
