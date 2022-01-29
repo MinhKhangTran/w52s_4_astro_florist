@@ -78,12 +78,11 @@ const Testimonials = () => {
         <ul className="d-flex testimonial_dots">
           {Array.from({ length: 3 }, (_, number) => {
             return (
-              <li>
+              <li key={number}>
                 <button
                   className={`testimonial_dot ${
                     index === number ? "active" : ""
                   }`}
-                  key={number}
                   onClick={() => {
                     setIndex(number);
                   }}
