@@ -1,1 +1,57 @@
-<footer>Footer</footer>
+---
+const navArray = [
+  { id: 1, text: "Merkmale", url: "/#merkmale" },
+  { id: 2, text: "Referenzen", url: "/#testimonials" },
+  { id: 3, text: "Über uns", url: "/ueber-uns" },
+  { id: 4, text: "Kontakt", url: "/kontakt" },
+  { id: 5, text: "Impressum", url: "/impressum" },
+  { id: 6, text: "DSGVO", url: "/dsgvo" },
+];
+interface Props {
+  current: "index" | "über uns";
+}
+---
+
+<footer class="bg-white">
+  <div class="container">
+    <ul class="d-flex">
+      {navArray.map((nav) => {
+        return (
+          <li>
+            <a href={nav.url}>{nav.text}</a>
+          </li>
+        );
+      })}
+    </ul>
+    <div class="line"></div>
+    <p class="text-center">© 2022 Florist Rose</p>
+  </div>
+</footer>
+
+<style>
+  @import url("../styles/_media.css");
+  footer {
+    padding-block: 1.5rem 1rem;
+  }
+  ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    @media (--sm) {
+      gap: 3rem;
+    }
+  }
+  .line {
+    height: 1px;
+    background: var(--primary-light);
+  }
+  a {
+    color: #72716f;
+    text-decoration: none;
+  }
+  p {
+    padding-top: 1rem;
+    color: #72716f;
+  }
+</style>

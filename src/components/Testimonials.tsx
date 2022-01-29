@@ -87,7 +87,8 @@ const Testimonials = () => {
                     setIndex(number);
                   }}
                 >
-                  {number + 1}
+                  {number + 1}{" "}
+                  <span className="sr-only">Testimonial {number + 1}</span>
                 </button>
               </li>
             );
