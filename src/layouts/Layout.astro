@@ -17,11 +17,89 @@ const { title, description, permalink, current, canonicalURL } = Astro.props;
     <BaseHead {title} {description} {canonicalURL} {permalink} />
   </head>
 
-  <body class={current}>
+  <body class={current} data-barba="wrapper">
     <a class="skip-to-content" href="#main-content">Skip to content</a>
     <Navbar {current} />
 
     <slot />
     <Footer />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
+    ></script>
+    <script>
+      const tlHero = gsap.timeline();
+
+      tlHero.fromTo(
+        ".hero_image",
+        { opacity: 0 },
+        { opacity: 1, duration: 1.5, ease: Power2.easeOut }
+      );
+      tlHero.fromTo(
+        ".hero_text",
+        { opacity: 0 },
+        { opacity: 1, duration: 1, stagger: 0.05, ease: Power2.easeOut },
+        "<10%"
+      );
+
+      // welcome
+      const tlWelcome = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".welcome",
+          start: "-250%",
+        },
+      });
+
+      tlWelcome.fromTo(".welcome", { opacity: 0, y: 20 }, { opacity: 1, y: 0 });
+
+      // Zeiten
+      const tlZeiten = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#zeiten",
+          start: "-200%",
+        },
+      });
+
+      tlZeiten.fromTo("#zeiten", { opacity: 0, y: 20 }, { opacity: 1, y: 0 });
+
+      // Merkmale
+      const tlMerkmale = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#merkmale",
+          start: "-200%",
+        },
+      });
+
+      tlMerkmale.fromTo(
+        "#merkmale",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0 }
+      );
+
+      // Testi
+      const tlTesti = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#testimonials",
+          start: "-150%",
+        },
+      });
+
+      tlTesti.fromTo(
+        "#testimonials",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0 }
+      );
+
+      // Map
+      const tlMap = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#karte",
+          start: "-180%",
+        },
+      });
+
+      tlMap.fromTo("#karte", { opacity: 0, y: 20 }, { opacity: 1, y: 0 });
+    </script>
   </body>
 </html>

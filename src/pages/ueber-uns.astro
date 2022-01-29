@@ -8,7 +8,12 @@ let canonicalURL = Astro.request.canonicalURL;
 ---
 
 <Layout {title} {description} {permalink} current="über uns" {canonicalURL}>
-  <main id="main-content" aria-label="main">
+  <main
+    id="main-content"
+    aria-label="main"
+    data-barba="container"
+    data-barba-namespace="about"
+  >
     <div class="container">
       <h1 class="h1 heading-dark">Über uns</h1>
       <p>
