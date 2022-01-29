@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-let title = "Über Uns";
+let title = "Kontakt";
 let description = "Astro Portfolio W52s #4";
 const permalink = Astro.site.href;
 let canonicalURL = Astro.request.canonicalURL;
@@ -9,6 +9,96 @@ let canonicalURL = Astro.request.canonicalURL;
 
 <Layout {title} {description} {permalink} {canonicalURL}>
   <main id="main-content" aria-label="main">
-    <h1>Kontakt</h1>
+    <div class="container_contact">
+      <h1 class="h1 heading-text">Kontakt</h1>
+   <p>
+        Authentic vaporware ugh, man braid listicle disrupt vexillologist man
+        bun hella meggings butcher vinyl schlitz food truck.
+      </p>
+
+          <form class="flow" style="--flow-space: 0.75rem" >
+    <div class="form-control">
+      <label for="name">Name</label>
+      <input required type="text" placeholder="Name..." id="name" />
+    </div>
+    <div class="form-control">
+      <label for="e-mail">E-Mail</label>
+      <input required type="text" placeholder="E-Mail..." id="e-mail" />
+    </div>
+    <div class="form-control">
+      <label for="message">Nachricht</label>
+      <textarea required placeholder="Nachricht" id="message" name="w3review" rows="8" cols="50">
+</textarea
+      >
+    </div>
+    <button class="bg-primary" type="submit">Senden</button>
+    </form>
+
+     <picture class="kontakt_image">
+      
+        <source
+       
+          srcset="assets/images/contact.webp"
+          type="image/webp"
+        />
+
+        <img
+      
+          src="assets/images/contact.jpg"
+          alt="Eine Vase aus einer Blechdose mit einer Blume"
+        />
+      </picture>
+    </div>
   </main>
+  <style>
+  @import url("../styles/_media.css");
+  .container_contact{
+    width: 90%;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+    section {
+    padding-block: 1.5rem;
+    margin-block: 7rem 1rem;
+      @media (--sm){
+    
+      padding-block: 3rem;
+      width: 42rem;
+      margin-inline:auto;
+      margin-block: 7rem 3rem;
+      border-radius: 8px;
+    
+  }
+  }
+  input,textarea{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 8px 0;
+  }
+  .form-control{
+    display: flex;
+    flex-direction: column;
+  }
+  .form-control:first-child{
+    padding-top: 1rem;
+  }
+ button {
+      text-decoration: none;
+      color: #000;
+      padding-inline: 24px;
+      padding-block: 12px;
+      border-radius: 50px;
+      transition: all 0.3s ease-in;
+      border:none;
+      
+      &:hover {
+        color: var(--primary-light);
+        background-color: var(--link);
+      }
+    }
+
+   picture {
+      padding-block: 2rem;
+    }
+  </style>
 </Layout>
