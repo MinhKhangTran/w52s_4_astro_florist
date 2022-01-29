@@ -46,17 +46,17 @@ let canonicalURL = Astro.request.canonicalURL;
       <picture class="welcome_image_child">
         <source
           media="(min-width: 768.1px)"
-          srcset="assets/images/welcome-min.webp"
+          srcset="../assets/images/welcome-min.webp"
           type="image/webp"
         />
         <source
           media="(max-width: 768px)"
-          srcset="assets/images/welcome_sm-min.webp"
+          srcset="../assets/images/welcome_sm-min.webp"
           type="image/webp"
         />
 
         <img
-          srcset="assets/images/welcome-min.jpg, assets/images/welcome_sm-min.jpg"
+          srcset="../assets/images/welcome-min.jpg, assets/images/welcome_sm-min.jpg"
           sizes="(min-width: 768.1px), (max-width: 768px)"
           src="assets/images/welcome-min.jpg"
           alt="Der Eingang eines Blumenladens"
